@@ -14,9 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="app" index element={<IndexView />}  >
-
-      </Route >
+      <Route path="app" index element={<IndexView />} />
     </>
   )
 )
