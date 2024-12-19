@@ -7,14 +7,18 @@ import {
   RouterProvider
 } from 'react-router-dom';
 
-import IndexView from './app/IndexView';
+import IndexView from './app/produto/Index';
+import EditarProdutoView from './app/produto/editar_produto';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="app" index element={<IndexView />} />
+      <Route path="app">
+        <Route path="produto" index element={<IndexView />} />
+        <Route path="produto/:id" index element={<EditarProdutoView />} />
+      </Route>
     </>
   )
 )

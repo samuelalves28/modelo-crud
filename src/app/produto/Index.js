@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import api from "../connections/api";
+import api from "../../connections/api";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress } from '@mui/material';
 
 const IndexView = () => {
@@ -20,7 +20,7 @@ const IndexView = () => {
 
     useEffect(() => {
         getProdutosApi();
-    }, [])
+    }, []);
 
     return (<TableContainer component={Paper} style={{ marginTop: 20 }}>
         {loading
