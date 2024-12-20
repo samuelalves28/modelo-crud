@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import api from "../../connections/api";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress, IconButton } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress, IconButton, Button } from '@mui/material';
 import { GrEdit } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
+import { LuPackagePlus } from "react-icons/lu";
+
 
 const IndexView = () => {
     const [data, setData] = useState([]);
@@ -36,7 +38,12 @@ const IndexView = () => {
                     <CircularProgress />
                 </div>
             )
-            : (
+            : (<Paper sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ padding: '10px', display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button variant="contained" style={{ gap: '8px' }} >
+                        <LuPackagePlus /> Adicionar produto
+                    </Button>
+                </div>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -61,6 +68,7 @@ const IndexView = () => {
                         ))}
                     </TableBody>
                 </Table>
+            </Paper>
             )}
     </TableContainer>);
 };

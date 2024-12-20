@@ -55,7 +55,7 @@ const EditarProdutoView = () => {
     } catch (error) {
       alert('Erro ao atualizar o produto. Por favor, tente novamente.');
     } finally {
-      setLoading(false); // Finaliza o estado de carregamento
+      setLoading(false);
     }
   };
 

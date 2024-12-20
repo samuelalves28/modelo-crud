@@ -7,17 +7,20 @@ import {
   RouterProvider
 } from 'react-router-dom';
 
-import IndexView from './app/produto/Index';
+import ProdutoView from './app/produto/Index';
 import EditarProdutoView from './app/produto/editar_produto';
+import IndexView from './app/IndexView';
+import DashboardView from './app/dashbord';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="app">
-        <Route path="produto" index element={<IndexView />} />
-        <Route path="produto/:id" index element={<EditarProdutoView />} />
+      <Route path="app" element={<IndexView />}>
+        <Route path="dashbord" index element={<DashboardView />} />
+        <Route path="produto" element={<ProdutoView />} />
+        <Route path="produto/:id" element={<EditarProdutoView />} />
       </Route>
     </>
   )

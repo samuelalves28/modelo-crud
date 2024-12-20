@@ -1,7 +1,12 @@
+import { Outlet } from "react-router-dom";
+
 import React from 'react';
+import NavBarView from "./componentes/navBar";
 
 const IndexView = () => {
-    return (<h1>Bem vindo</h1>);
+    return (<NavBarView>
+        <Outlet />
+    </NavBarView>);
 };
 
 export default IndexView;
