@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import api from "../../connections/api";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, CircularProgress, IconButton } from '@mui/material';
+import { GrEdit } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 
 const IndexView = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     const getProdutosApi = useCallback(async () => {
         setLoading(true);
@@ -22,6 +25,10 @@ const IndexView = () => {
         getProdutosApi();
     }, []);
 
+    const HandlerNavigateDetalheProduto = (id) => {
+        navigate(`${id}`);
+    }
+
     return (<TableContainer component={Paper} style={{ marginTop: 20 }}>
         {loading
             ? (
@@ -36,6 +43,7 @@ const IndexView = () => {
                             <TableCell>ID</TableCell>
                             <TableCell>Nome</TableCell>
                             <TableCell>Preço</TableCell>
+                            <TableCell>Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -44,6 +52,11 @@ const IndexView = () => {
                                 <TableCell>{row.id}</TableCell>
                                 <TableCell>{row.nome}</TableCell>
                                 <TableCell>{row.preco}</TableCell>
+                                <TableCell>
+                                    <IconButton onClick={() => HandlerNavigateDetalheProduto(row.id)}>
+                                        <GrEdit />
+                                    </IconButton>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
