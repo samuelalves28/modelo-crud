@@ -5,8 +5,8 @@ import NavBarView from "./componentes/navBar";
 
 const IndexView = () => {
     return (<NavBarView>
-        <Outlet />
-    </NavBarView>);
+            <Outlet />
+        </NavBarView>);
 };
 
 export default IndexView;
